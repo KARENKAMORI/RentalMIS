@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Houses Page</h1>
+
+    <h2>{{ houseType.name }}</h2>
+    <ul>
+        {% for rental in houseType.types.all %}
+            <li>{{rental.name}}<br>{{rental.location}}<br>{{rental.bedrooms}} Bedrooms <br>{{rental.bathrooms}} Bathrooms <br>{{rental.description}}</li><br>
+        {% endfor %}
+    </ul>
+{% endblock %}
