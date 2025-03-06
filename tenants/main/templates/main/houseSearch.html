@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+    <form method=POST action="{% url 'houseSearch' %}">
+        {% csrf_token %}
+        <input type="search" placeholder="Location" name="searched">
+        <button type="submit">Search</button>
+    </form>
+    {% if searched %}
+        <h1>You Searched for {{ searched }}</h1>
+        <br/>
+        {% for home in house %}
+            {{home}}<br/>
+        {% endfor %}
+    {% else %}
+        <h1>Nothing searched</h1>
+    {% endif %}
+
+{% endblock %}
