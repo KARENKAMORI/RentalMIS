@@ -5,5 +5,9 @@
     <h1>Home Page</h1>
 
     <h2>{{ houseType.name }}</h2>
-    {% for %}
+    <ul>
+        {% for rental in house.all %}
+            <li>{{rental.name}}<br>{{rental.location}}<br>{{rental.bedrooms}} Bedrooms <br>{{rental.bathrooms}} Bathrooms <br>{{rental.description}}</li><br>
+        {% endfor %}
+    </ul>
 {% endblock %}

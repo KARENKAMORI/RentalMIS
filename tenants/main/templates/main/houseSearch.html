@@ -11,7 +11,7 @@
         <h1>You Searched for {{ searched }}</h1>
         <br/>
         {% for home in house %}
-            {{home}}<br/>
+            {{home}} {{home.Location}}<br/>{{home.location}}<br>{{home.bedrooms}} Bedrooms <br>{{home.bathrooms}} Bathrooms <br>{{home.description}}
         {% endfor %}
     {% else %}
         <h1>Nothing searched</h1>

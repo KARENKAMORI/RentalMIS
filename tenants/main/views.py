@@ -3,12 +3,13 @@ from django.http import HttpResponse
 from .models import Types, Houses
 
 # Create your views here.
-def index(response, id):
-    houseType = Types.objects.get(id=id)
+def index(response, name):
+    houseType = Types.objects.get(name=name)
     return render(response, "main/houses.html", {"houseType":houseType})
 
 def home(response):
-    return render(response, "main/home.html", {})
+    house = Houses.objects.all()
+    return render(response, "main/home.html", {"house":house})
 
 def dashboard(response):
     return HttpResponse("Tenant Dashboard")
