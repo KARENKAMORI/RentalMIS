@@ -4,15 +4,21 @@
 {% block content %}
     <form method=POST action="{% url 'houseSearch' %}">
         {% csrf_token %}
-        <input type="search" placeholder="Location" name="searched">
-        <button type="submit">Search</button>
+        <input class="min-h-[20px] min-w-[70px] rounded-lg shadow type="search" placeholder="Location" name="searched">
+        <button class="min-h-[40px] min-w-[70px] rounded-lg shadow bg-blue-950 text-white" type="submit">Search</button>
     </form>
     {% if searched %}
         <h1>You Searched for {{ searched }}</h1>
         <br/>
-        {% for home in house %}
-            {{home}} {{home.Location}}<br/>{{home.location}}<br>{{home.bedrooms}} Bedrooms <br>{{home.bathrooms}} Bathrooms <br>{{home.description}}
-        {% endfor %}
+        <ul>
+            <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 m-4">
+                {% for home in house %}
+                    <div class="min-h-[150px] rounded-lg shadow bg-white">
+                        <li>{{home}} {{home.Location}}<br/>{{home.location}}<br>{{home.bedrooms}} Bedrooms <br>{{home.bathrooms}} Bathrooms <br>{{home.description}}<br><br></li>
+                    </div>
+                {% endfor %}
+            </div>
+        </ul>
     {% else %}
         <h1>Nothing searched</h1>
     {% endif %}

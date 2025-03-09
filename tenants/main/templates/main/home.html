@@ -2,12 +2,19 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <h1>Home Page</h1>
+    <h1>Maskani</h1>
 
     <h2>{{ houseType.name }}</h2>
     <ul>
-        {% for rental in house.all %}
-            <li>{{rental.name}}<br>{{rental.location}}<br>{{rental.bedrooms}} Bedrooms <br>{{rental.bathrooms}} Bathrooms <br>{{rental.description}}</li><br>
-        {% endfor %}
+        <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 m-4">
+            {% for rental in house.all %}
+                <div class="min-h-[150px] rounded-lg shadow bg-white">
+                    <li>
+                        {{rental.name}}<br>{{rental.location}}<br>{{rental.bedrooms}} Bedrooms <br>{{rental.bathrooms}} Bathrooms <br>{{rental.description}}
+                        <button class="min-h-[20px] min-w-[70px] rounded-lg shadow bg-blue-950 text-white">View</button>     
+                    </li>
+                </div>
+            {% endfor %}
+        </div>
     </ul>
 {% endblock %}
