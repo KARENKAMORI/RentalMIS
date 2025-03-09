@@ -4,7 +4,7 @@
 {% block content %}
     <form method=POST action="{% url 'houseSearch' %}">
         {% csrf_token %}
-        <input class="min-h-[20px] min-w-[70px] rounded-lg shadow type="search" placeholder="Location" name="searched">
+        <input class="min-h-[20px] min-w-[70px] rounded-lg shadow" type="search" placeholder="Location" name="searched">
         <button class="min-h-[40px] min-w-[70px] rounded-lg shadow bg-blue-950 text-white" type="submit">Search</button>
     </form>
     {% if searched %}
